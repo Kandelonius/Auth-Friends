@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Login from "./components/Login";
 import logo from './logo.svg';
+import PrivateRoute from "./components/PrivateRoute";
+import FriendsList from "./components/FriendsList";
+import Login from "./components/Login";
 import './App.css';
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
           </li>
         </ul>
         <Switch>
-          {/* <PrivateRoute exact path="/protected" component={GasPrices} /> */}
+          <PrivateRoute exact path="/protected" component={FriendsList} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
         </Switch>
