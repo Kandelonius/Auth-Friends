@@ -1,5 +1,17 @@
 import React, { Component } from 'react'
-import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+// create a new "instance" of the axios module that has the Auth header built-in
+
+// export const axiosWithAuth = () => {
+//   const token = localStorage.getItem("token");
+//   return axios.create({
+//     headers: {
+//       Authorization: token
+//     },
+//     baseURL: "http://localhost:5000"
+//   });
+// };
 
 export default class Login extends Component {
     state = {
@@ -24,14 +36,14 @@ export default class Login extends Component {
         // if the creds match what is in the database, the server will return a JSON web token
         // set the token to localStorage (sessions)
         // navigate the user to the "/protected" route
-        axios
-            .post("http://localhost:5000/api/login", this.state.credentials)
-            .then(res => {
-                console.log(res);
-                localStorage.setItem("token", res.data.payload);
-                this.props.history.push("/protected");
-            })
-            .catch(err => console.log(err));
+        axiosWithAuth()
+      .post("http://localhost:5000/api/login", this.state.credentials)
+      .then(res => {
+        // res.data.payload
+        localStorage.setItem("token", res.data.payload);
+        this.props.history.push("/protected");
+      })
+      .catch(err => console.log(err));
     };
     render() {
         return (
