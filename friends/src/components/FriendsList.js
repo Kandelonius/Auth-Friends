@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Loader from 'react-loader-spinner';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import FriendForm from "./FriendForm";
 
 class FriendsList extends Component {
     state = {
@@ -30,6 +31,7 @@ class FriendsList extends Component {
         this.state.friends.forEach(friend => {
             formattedData.push({
                 name: friend.name,
+                age: friend.age,
                 email: friend.email,
 
             });
@@ -41,7 +43,6 @@ class FriendsList extends Component {
     render() {
         const friends = this.formatData();
         return (
-
             <div>
                 <h1>Friends</h1>
                 {friends.length > 0 && (
@@ -49,11 +50,13 @@ class FriendsList extends Component {
                         {friends.map(fr => (
                             <div className="friends">
                                 <p>name: {fr.name}</p>
+                                <p>age: {fr.age}</p>
                                 <p>email: {fr.email}</p>
                             </div>
                         ))}
                     </div>
                 )}
+                {/* <FriendForm /> */}
             </div>
         )
     }

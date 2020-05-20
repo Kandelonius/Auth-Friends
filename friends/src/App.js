@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import PrivateRoute from "./components/PrivateRoute";
 import FriendsList from "./components/FriendsList";
+import FriendForm from "./components/FriendForm";
 import Login from "./components/Login";
 import './App.css';
 
@@ -19,11 +20,15 @@ function App() {
             <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to="/Friends">Protected Page</Link>
+          </li>
+          <li>
+            <Link to="/FriendForm">Form Page</Link>
           </li>
         </ul>
         <Switch>
           <PrivateRoute exact path="/Friends" component={FriendsList} />
+          <PrivateRoute exact path="/FriendForm" component={FriendForm} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
         </Switch>
