@@ -41,7 +41,7 @@ export default class Login extends Component {
       .then(res => {
         // res.data.payload
         localStorage.setItem("token", res.data.payload);
-        this.props.history.push("/protected");
+        this.props.history.push("/Friends");
       })
       .catch(err => console.log(err));
     };
