@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Loader from 'react-loader-spinner';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import FriendForm from "./FriendForm";
+
 
 class FriendsList extends Component {
     state = {

@@ -13,9 +13,9 @@ class FriendForm extends Component {
     };
 
     handleAddFriend = _ => {
-        const { name, age, email } = this.state;
-        this.createFriend({ name, age, email });
-        this.setState({ name: '', age: '', email: '' });
+        const { id, name, age, email } = this.state;
+        this.createFriend({ id, name, age, email });
+        this.setState({ id: '', name: '', age: '', email: '' });
     };
     createFriend = friend => {
         const newFriend = axiosWithAuth()
